@@ -1,6 +1,5 @@
 language: c
 compiler:
-  - clang
   - gcc
 before_install:
   - sudo pip install nose
