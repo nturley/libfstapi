@@ -12,6 +12,9 @@ obj/fastlz.o : src/fastlz.c src/fastlz.h obj
 obj/fstapi.o : src/fstapi.c src/fstapi.h src/fastlz.h src/lz4.h obj
 	clang -c -Wall -Werror -fpic src/fstapi.c -o obj/fstapi.o
 
+pytests : bin/libfstapi.so
+	nosetests test/tests.py
+
 obj :
 	@mkdir -p obj
 
@@ -19,4 +22,4 @@ bin :
 	@mkdir -p bin
 
 clean :
-	rm obj/*.o bin/*.so
+	-rm obj/*.o bin/*.so test/*.pyc
