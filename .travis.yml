@@ -1,10 +1,11 @@
 language: c
-- gcc
-- clang
+compiler:
+  - clang
+  - gcc
 before_install:
-- sudo pip install nose
-- pip install conan
+  - sudo pip install nose
+  - pip install conan
 script:
-- mkdir build
-- cd build && conan install .. && cmake .. && cmake --build .
-- nosetests ../test/tests.py
+  - mkdir build
+  - cd build && conan install .. && cmake .. && cmake --build .
+  - nosetests ../test/tests.py
