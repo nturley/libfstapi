@@ -1,7 +1,12 @@
 language: c
+- gcc
+- clang
 before_install:
-- sudo apt-get update
-- sudo apt-get install python
-- sudo easy_install pip
 - sudo pip install nose
-script: make pytests
+- pip install conan
+install:
+- 
+script:
+- mkdir build
+- cd build && conan install .. && cmake .. && cmake --build .
+- nosetests ../test/tests.py
